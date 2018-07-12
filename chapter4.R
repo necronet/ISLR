@@ -75,7 +75,28 @@ mean(knn.pred==Direction.2005)
 
 
 ## Caravan example
-attach
+attach(Caravan)
+summary(Purchase)
+
+standarized.X = scale(Caravan[,-86])
+
+test=1:1000
+train.X = standarized.X[-test,]
+test.X = standarized.X[test,]
+train.Y = Purchase[-test]
+test.Y = Purchase[test]
+
+knn.pred = knn(train.X,test.X,train.Y,k=1)
+mean(test.Y!=knn.pred)
+
+mean(test.Y!="No")
+table(knn.pred, test.Y)
+
+knn.pred = knn(train.X,test.X,train.Y,k=2)
+table(knn.pred, test.Y)
+
+
+
 
 
 
