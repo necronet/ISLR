@@ -56,7 +56,7 @@ summary(lm.fit5)
 summary(lm(medv~log(rm)))
 
 
-lm.fit = lm
+
 
 
 
